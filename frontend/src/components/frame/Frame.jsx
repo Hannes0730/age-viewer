@@ -55,6 +55,7 @@ const Frame = ({
   const [isFullScreen, setFullScreen] = useState(false);
   const [isExpand, setExpand] = useState(true);
 
+
   // const downloadMenu = () => (
   //   <Menu onClick={(e) => onDownload(e)}>
   //     <Menu.Item key="png">
@@ -85,6 +86,7 @@ const Frame = ({
             onClick={() => dispatch(setCommand(reqString))}
             style={{
               cursor: 'pointer',
+              marginLeft: '16px'
             }}
           />
         </div>

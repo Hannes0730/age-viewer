@@ -23,11 +23,19 @@ import 'antd/dist/antd.css';
 import './static/style.css';
 import './static/navbar-fixed-left.css';
 import MainPage from './pages/Main/MainPage';
+import frameContext from './components/frameContext';
+import { useState } from 'react';
 
-const App = () => (
-  <React.StrictMode>
-    <MainPage />
-  </React.StrictMode>
-);
+const App = () => {
+  const [frameKey, setFrameKey] = useState([]);
+
+  return (
+    <frameContext.Provider value={{ frameKey, setFrameKey }}>
+    <React.StrictMode>
+      <MainPage />
+    </React.StrictMode>
+  </frameContext.Provider>
+  )
+}
 
 export default App;

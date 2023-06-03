@@ -22,13 +22,17 @@ import { useDispatch } from 'react-redux';
 import uuid from 'react-uuid';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle, faToggleOff, faToggleOn } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBolt,
+  faTimesCircle,
+  faToggleOff,
+  faToggleOn } from '@fortawesome/free-solid-svg-icons';
 import store from '../../../app/store';
 import AlertContainers from '../../alert/containers/AlertContainers';
 import CodeMirror from '../../editor/containers/CodeMirrorWapperContainer';
 import SideBarToggle from '../../editor/containers/SideBarMenuToggleContainer';
 import { setting } from '../../../conf/config';
-import IconPlay from '../../../icons/IconPlay';
+// import IconPlay from '../../../icons/IconPlay';
 import { getMetaData } from '../../../features/database/MetadataSlice';
 
 const Editor = ({
@@ -140,7 +144,7 @@ const Editor = ({
   }, [alertList]);
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" id='top-nav'>
       <div className="editor">
         <div className="container-fluid editor-area card-header">
           <div className="input-group input-style">
@@ -160,22 +164,25 @@ const Editor = ({
                   size="lg"
                 />
               </button> */}
-              <button className={command ? 'btn show-eraser' : 'btn hide-eraser'} type="button" id="eraser" onDoubleClick={() => clearCommand()}>
+              <button className={command ? 'btn-nav-eraser show-eraser' : 'btn-nav-eraser hide-eraser'} type="button" id="eraser" onDoubleClick={() => clearCommand()}>
                 <FontAwesomeIcon
                   icon={faTimesCircle}
-                  size="1x"
                 />
               </button>
               <button
-                className="frame-head-button btn btn-link"
+                className="frame-head-button btn-nav btn-link"
                 type="button"
                 onClick={() => onClick()}
-                title="Run Query"
+                title="Run"
               >
-                <IconPlay />
+                <FontAwesomeIcon
+                  icon={faBolt}
+                  size='2x'
+                  className='nav-icons'/>
+                <span className="span-text-btn">Run</span>
               </button>
               <button
-                className="frame-head-button btn btn-link"
+                className="frame-head-button btn-nav btn-link"
                 type="button"
                 onClick={() => {
                   toggleMenu('home');
@@ -194,10 +201,10 @@ const Editor = ({
                 <SideBarToggle isActive={isActive} />
               </button>
               <button
-                className="frame-head-button btn btn-link"
+                className="frame-head-button btn-nav btn-link"
                 type="button"
                 onClick={() => setLabel()}
-                title="Run Query"
+                title="Compact"
               >
                 <FontAwesomeIcon
                   icon={isLabel ? faToggleOn : faToggleOff}

@@ -1,0 +1,27 @@
+.scroll-arrow {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+  
+    .arrow-up {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      padding: 5px;
+      cursor: pointer;
+
+    }
+
+    .arrow-up:hover{
+      color: #b0b0b0;
+    }
+
+    .arrow-up:active {
+      transform: scale(0.8);
+    }
+  }
+  

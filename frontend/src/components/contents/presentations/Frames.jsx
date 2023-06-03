@@ -17,7 +17,7 @@
  * under the License.
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Contents from '../../frame/containers/ContentsFrameContainer';
@@ -28,6 +28,7 @@ import CypherGraphResult from '../../frame/containers/CypherGraphResultContainer
 import CypherResult from '../../frame/containers/CypherResultContainers';
 import CSV from '../../csv';
 import { setting } from '../../../conf/config';
+import frameContext from '../../frameContext';
 
 const Frames = ({
   database,
@@ -37,7 +38,8 @@ const Frames = ({
   maxNumOfFrames,
 }) => {
   const dispatch = useDispatch();
-  const [frames, setFrames] = useState(null);
+  const [frames, setFrames] = useState([]);
+  const { setFrameKey } = useContext(frameContext);
 
   useEffect(() => {
     if (database.status === 'connected' && frameList.length === 0) {
@@ -56,12 +58,13 @@ const Frames = ({
     }
   }, [database.status]);
 
+  
   useEffect(() => {
     setFrames(frameList.map((frame, index) => {
       if (index > maxNumOfFrames && maxNumOfFrames !== 0) {
         return '';
       }
-
+      setFrameKey((prevKey) => [...prevKey, frame.frameProps.key]);
       if (frame.frameName === 'Contents') {
         return (
           <Contents

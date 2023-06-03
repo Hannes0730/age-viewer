@@ -21,9 +21,12 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(46,41,129);
+background: linear-gradient(90deg, rgba(46,41,129,1) 0%, rgba(121,9,113,1) 45%, rgba(255,0,91,1) 100%);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+

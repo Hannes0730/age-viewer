@@ -24,10 +24,11 @@
   transition: all 0.3s;
   top: 0;
   right: 0;
-  background-color: var(--bg-color);
+  background-color: transparent;
   color: var(--text-color);
 }
 
 .Content.Expanded {
   width: 100%;
 }
+

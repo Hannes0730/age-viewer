@@ -31,6 +31,8 @@ import { loadFromCookie, saveToCookie } from '../../../features/cookie/CookieUti
 import BuilderContainer from '../../query_builder/BuilderContainer';
 import './DefaultTemplate.scss';
 import KeyWordFinder from '../../../features/query_builder/KeyWordFinder';
+import ScrollArrow from '../../ScrollTop/ScrollTop';
+import Trash from '../../Trash/Trash';
 
 const DefaultTemplate = ({
   theme,
@@ -51,6 +53,7 @@ const DefaultTemplate = ({
     maxDataOfTable,
   });
   const [finder, setFinder] = useState(null);
+
 
   useEffect(async () => {
     const req = {
@@ -127,7 +130,8 @@ const DefaultTemplate = ({
         </div>
 
       </Row>
-
+      <Trash />
+      <ScrollArrow />
     </div>
   );
 };

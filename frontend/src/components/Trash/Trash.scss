@@ -1,0 +1,26 @@
+.trash-icon-div {
+    position: fixed;
+    bottom: 75px;
+    right: 20px;
+    z-index: 999;
+  
+    .trash-icon {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .trash-icon:hover{
+      color: #b0b0b0;
+    }
+
+    .trash-icon:active {
+      transform: scale(0.8);
+    }
+  }
+  

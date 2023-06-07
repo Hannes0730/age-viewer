@@ -170,7 +170,7 @@ const Editor = ({
                 />
               </button>
               <button
-                className="frame-head-button btn-nav btn-link"
+                className='frame-head-button btn-nav btn-link'
                 type="button"
                 onClick={() => onClick()}
                 title="Run"
@@ -199,6 +199,7 @@ const Editor = ({
                 title={(isActive) ? 'Hide' : 'Show'}
               >
                 <SideBarToggle isActive={isActive} />
+                <span className='span-text-btn'>{(isActive) ? 'Hide' : 'Show'}</span>
               </button>
               <button
                 className="frame-head-button btn-nav btn-link"
@@ -210,6 +211,7 @@ const Editor = ({
                   icon={isLabel ? faToggleOn : faToggleOff}
                   size="2x"
                 />
+                <span className='span-text-btn'>{isLabel ? "Compressed" : "Expanded"}</span>
               </button>
             </div>
           </div>

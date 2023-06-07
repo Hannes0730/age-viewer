@@ -9,7 +9,7 @@ import { removeActiveRequests } from '../../features/cypher/CypherSlice';
 import { useDispatch } from 'react-redux';
 
 const Trash = () => {
-    const { frameKey } = useContext(frameContext);
+    const { frameKey, setFrameKey } = useContext(frameContext);
     const [del, setDel] = useState(false);
     const dispatch = useDispatch();
     
@@ -25,6 +25,7 @@ const Trash = () => {
             dispatch(removeFrame(key));
             dispatch(removeActiveRequests(key));
         });
+        setFrameKey([]);
         setDel(true);
     };
     
@@ -37,7 +38,9 @@ const Trash = () => {
 
     return (
         <div className="trash-icon-div">
+            { frameKey.length > 0 &&
             <FontAwesomeIcon className="trash-icon" onClick={deleteAllFrames} icon={faTrash} size="2x"/>
+            }
         </div>
     );
 };

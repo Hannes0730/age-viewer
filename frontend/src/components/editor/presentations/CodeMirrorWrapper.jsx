@@ -21,7 +21,7 @@ import React, { useRef, useState } from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import 'codemirror/keymap/sublime';
 import 'codemirror/addon/display/placeholder';
-import 'codemirror/theme/ambiance-mobile.css';
+import 'codemirror/theme/dracula.css';
 import './CodeMirror.scss';
 import PropTypes from 'prop-types';
 
@@ -45,7 +45,8 @@ const CodeMirrorWrapper = ({
         spellcheck: false,
         autocorrect: false,
         autocapitalize: false,
-        lineNumberFormatter: () => '$',
+        theme: 'dracula',
+        lineNumberFormatter: () => '>',
         extraKeys: {
           'Shift-Enter': (editor) => {
             onClick();
